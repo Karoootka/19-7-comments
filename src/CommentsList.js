@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Comment from './CommentContainer';
+import CommentForm from './CommentForm';
 
-const CommentsList = ({comments}) => <ul>{comments.map(comment => <Comment key={comment.id} {...comment}/>)}</ul>;
+const CommentsList = ({comments, addComment}) =>
+  <div>
+    <ul>{comments.map(comment => <Comment key={comment.id} {...comment}/>)}</ul>
+    <CommentForm addComment={text => addComment(text)}/>
+  </div>;
 
 export default CommentsList;
